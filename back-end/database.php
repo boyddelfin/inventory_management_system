@@ -44,3 +44,5 @@ class Database {
     }
 
 }
+
+new Database();

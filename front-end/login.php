@@ -11,11 +11,11 @@
                             <form id="user-login" action="<?php echo APP_DOMAIN; ?>/" method="POST">
                                 <div class="mb-3">
                                     <label for="user_name">Enter Username</label>
-                                    <input type="text" name="username" id="user_name" placeholder="Enter Username" class="form-control">
+                                    <input type="text" name="username" id="user_name" placeholder="Enter Username" class="form-control" data-lpignore="true">
                                 </div>
                                 <div class="mb-3">
                                     <label for="user_pass">Enter Password</label>
-                                    <input type="password" name="password" id="user_pass" placeholder="Enter Password" class="form-control">
+                                    <input type="password" name="password" id="user_pass" placeholder="Enter Password" class="form-control" data-lpignore="true">
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-primary">Login</button>
