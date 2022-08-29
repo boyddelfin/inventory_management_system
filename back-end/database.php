@@ -35,7 +35,7 @@ class Database {
         }
     }
 
-    public function clean_data($data) {
+    public function esc_data($data) {
         return mysqli_escape_string($this->connection(), $data);
     }
 
