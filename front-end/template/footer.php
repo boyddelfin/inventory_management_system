@@ -1,4 +1,4 @@
-<?php if($sessions->set()): ?>
+<?php if($sessions->is_set()): ?>
 <footer>
     <div class="container">
         &copy; Copyright <?php echo date('Y')." ".APP_NAME; ?>

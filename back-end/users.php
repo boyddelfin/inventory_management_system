@@ -9,11 +9,10 @@ class Users {
 
     function __construct()
     {
-        $this->id = $this->get_id('boyd123', 'admin');
-
+        
     }
 
-    public function get_id($username = null, $password = null)
+    public function authenticate($username, $password)
     {
         $database = new Database();
         $sql = sprintf(
@@ -24,9 +23,18 @@ class Users {
         );
         $query = $database->query($sql);
         $result = $query->fetch_assoc();
+        if($query->num_rows > 0) {
+            $this->id = $result['id'];
+        } else {
+            return false;
+        }
         $database->close();
-        return $result['id'];
     }
+
+    public function get_ID() {
+        return $this->id;
+    }
+
 
 }
 

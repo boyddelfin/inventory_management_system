@@ -1,12 +1,12 @@
 <?php
 class Sessions {
+
     function __construct()
     {
-        session_start();
-        // $_SESSION['id'] = 1;
-        // $this->destroy();
+        $this->check();
     }
-    public function set() {
+
+    public function is_set() {
         if(isset($_SESSION['id'])) {
             return true;
         } else {
@@ -16,12 +16,27 @@ class Sessions {
     public function destroy() {
         // Remove all session variables
         session_unset();
+        // // Destroy the session
+        session_destroy();
 
-        if(session_status() == PHP_SESSION_NONE) {
-            // Destroy the session
-            session_destroy();
+    }
+
+    private function check() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Get Login Credentials
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            // Check if User exists
+            $users = new Users();
+            if($users->authenticate($username, $password)) {
+                $_SESSION['id'] = $users->id;
+            }
         }
 
-    } 
+        if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
+            $this->destroy();
+        }
+    }
 }
 $sessions = new Sessions();
