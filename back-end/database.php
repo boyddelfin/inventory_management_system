@@ -22,7 +22,7 @@ class Database {
         return new mysqli($this->host, $this->user, $this->pass, $this->name);
     }
 
-    public function query($sql = null) {
+    public function query($sql) {
         return mysqli_query($this->connection(), $sql);
     }
 
