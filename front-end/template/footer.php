@@ -5,7 +5,7 @@
     </div>
 </footer>
 <?php endif; ?>
-<script src="<?php echo APP_ASSETS; ?>/bootstrap-3/js/jquery-3.6.1.min.js"></script>
-<script src="<?php echo APP_ASSETS; ?>/bootstrap-3/js/bootstrap.min.js"></script>
+<script src="<?php echo APP_ASSETS; ?>/bootstrap-5.2.0-dist/js/jquery-3.6.1.min.js"></script>
+<script src="<?php echo APP_ASSETS; ?>/bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
