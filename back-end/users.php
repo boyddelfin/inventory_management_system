@@ -32,10 +32,6 @@ class Users {
         $database->close();
     }
 
-    public function get_ID() {
-        return $this->id;
-    }
-
 
 }
 

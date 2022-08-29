@@ -31,7 +31,7 @@ class Sessions {
             // Check if User exists
             $users = new Users();
             if($users->authenticate($username, $password)) {
-                $_SESSION['id'] = $users->get_ID();
+                $_SESSION['id'] = $users->id;
             }
         }
 
