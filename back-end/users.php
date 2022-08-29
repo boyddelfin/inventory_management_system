@@ -25,6 +25,7 @@ class Users {
         $result = $query->fetch_assoc();
         if($query->num_rows > 0) {
             $this->id = $result['id'];
+            return true;
         } else {
             return false;
         }

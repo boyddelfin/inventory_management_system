@@ -13,6 +13,7 @@ class Sessions {
             return false;
         }
     }
+
     public function destroy() {
         // Remove all session variables
         session_unset();
@@ -30,7 +31,7 @@ class Sessions {
             // Check if User exists
             $users = new Users();
             if($users->authenticate($username, $password)) {
-                $_SESSION['id'] = $users->id;
+                $_SESSION['id'] = $users->get_ID();
             }
         }
 
@@ -38,5 +39,6 @@ class Sessions {
             $this->destroy();
         }
     }
+
 }
 $sessions = new Sessions();
