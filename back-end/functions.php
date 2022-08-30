@@ -31,10 +31,20 @@ function has_page($file_name) {
     if(strtolower($file_name) == 'login') {
         return false;
     }
-    
+
     return $search_file;
 }
-has_page('hehe');
+
+function page_title() {
+    $url = explode("/", $_SERVER['QUERY_STRING']);
+    if(has_page($url[0])) {
+        $remove_uscore = str_replace('_', ' ', $url[0]);
+        $title = preg_replace('/[^A-Za-z0-9\-_]/', ' ', $remove_uscore);
+        echo ucwords($title);
+    } else {
+        echo '404 - Not Found';
+    }
+ }
 
 function _url($page) {
     echo APP_DOMAIN."/".strtolower($page);
