@@ -1,25 +1,35 @@
-<main>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card text-bg-light mt-5 overflow-hidden">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img src="<?php assets_img_url(); ?>/login-img.png" alt="" class="img-fluid">
+<main class="main-content mt-0">
+    <div class="page-header align-items-start min-vh-100" style="background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');">
+        <span class="mask bg-gradient-dark opacity-6"></span>
+        <div class="container my-auto">
+            <div class="row">
+                <div class="col-lg-4 col-md-8 col-12 mx-auto">
+                    <div class="card z-index-0 fadeIn3 fadeInBottom">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                                <h4 class="text-white font-weight-bolder text-center mb-0">Store IMS</h4>
+                            </div>
                         </div>
-                        <div class="col-md-6 p-4">
+                        <div class="card-body">
                             <form id="user-login" action="<?php echo APP_DOMAIN; ?>/" method="POST">
-                                <div class="mb-3">
-                                    <label for="user_name">Enter Username</label>
-                                    <input type="text" name="username" id="user_name" placeholder="Enter Username" class="form-control" data-lpignore="true">
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">Enter Username</label>
+                                    <input type="text" name="username" class="form-control">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="user_pass">Enter Password</label>
-                                    <input type="password" name="password" id="user_pass" placeholder="Enter Password" class="form-control" data-lpignore="true">
+                                <div class="input-group input-group-outline mb-3">
+                                    <label class="form-label">Enter Password</label>
+                                    <input type="password" name="password" class="form-control">
                                 </div>
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary">Login</button>
+                                <div class="form-check form-switch d-flex align-items-center mb-3">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+                                    <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
                                 </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Login</button>
+                                </div>
+                                <p class="mt-4 text-sm text-center">
+                                    Forgot your Password? <a href="#" class="text-primary text-gradient font-weight-bold">Click Here</a>
+                                </p>
                             </form>
                         </div>
                     </div>

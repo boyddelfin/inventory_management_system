@@ -32,13 +32,15 @@ class Sessions {
             $users = new Users();
             if($users->authenticate($username, $password)) {
                 $_SESSION['id'] = $users->id;
-                header("Location:".APP_DOMAIN);
+                header("Location:".APP_DOMAIN."/dashboard/");
             }
         }
 
         if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
             $this->destroy();
+            header("Location:".APP_DOMAIN);
         }
+
     }
 
 }
