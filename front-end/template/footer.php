@@ -2,6 +2,7 @@
 <footer>
     <div class="container">
         &copy; Copyright <?php echo date('Y')." ".APP_NAME; ?>
+        <a href="?logout=true">Logout</a>
     </div>
 </footer>
 <?php endif; ?>

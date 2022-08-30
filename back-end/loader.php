@@ -1,6 +1,7 @@
 <?php
 // Start the Session
 session_start();
+// ------------------------------------------------->
 
 // Framework Classes
 require APP_DIR.'\back-end\config.php';

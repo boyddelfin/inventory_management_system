@@ -5,44 +5,15 @@ class Database {
     private $name = DB_NAME;
     private $user = DB_USER;
     private $pass = DB_PASS;
-
+    public $conn;
 
     function __construct()
     {
-        $this->connection();
-
-        if(!$this->check_connection()) {
-             echo "Error connecting to database check your credentials";
-        } else {
-            $this->connection()->close();
-        }
+        $this->init_DB();
     }
 
-    private function connection() {
-        return new mysqli($this->host, $this->user, $this->pass, $this->name);
-    }
-
-    public function query($sql) {
-        return mysqli_query($this->connection(), $sql);
-    }
-
-    private function check_connection() {
-        if($this->connection()->connect_error) {
-            $this->connection()->close();
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public function esc_data($data) {
-        return mysqli_escape_string($this->connection(), $data);
-    }
-
-    public function close() {
-        return $this->connection()->close();
+    function init_DB() {
+        $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->name);
     }
 
 }
-
-new Database();

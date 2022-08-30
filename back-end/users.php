@@ -5,33 +5,64 @@ class Users {
     public $display_name;
     public $username;
     public $password;
-    private $table_name = 'inventory_users';
 
     function __construct()
     {
-        
+        $this->load_properties();
+    }
+
+    private function table() {
+        return 'inventory_users';
     }
 
     public function authenticate($username, $password)
     {
-        $database = new Database();
-        $sql = sprintf(
-            'SELECT id FROM %1$s WHERE username = "%2$s" AND password = "%3$s"',
-            $this->table_name, // #1
-            $database->esc_data($username), // #2
-            $database->esc_data(SHA1($password)) // #3
-        );
-        $query = $database->query($sql);
-        $result = $query->fetch_assoc();
-        if($query->num_rows > 0) {
-            $this->id = $result['id'];
+        $db = new Database();
+
+        $sql = "SELECT id FROM ".$this->table()." WHERE username=? AND password=SHA1(?)";
+
+        $query = $db->conn->prepare($sql);
+        $query->bind_param("ss", $username, $password);
+        $query->execute();
+
+        $result = $query->get_result();
+        $get = $result->fetch_assoc();
+
+        $db->conn->close();
+
+        if($result->num_rows > 0) {
+            $this->id = $get['id'];
             return true;
         } else {
             return false;
         }
-        $database->close();
+
     }
 
+    private function set_data($key) {
+        $db = new Database();
+
+        $sql = "SELECT $key FROM ".$this->table()." WHERE id=?";
+        $query = $db->conn->prepare($sql);
+        $query->bind_param("i", $_SESSION['id']);
+        $query->execute();
+
+        $result = $query->get_result();
+        $get = $result->fetch_assoc();
+
+        $db->conn->close();
+
+        if($result->num_rows > 0) {
+            return $get[$key];
+        }
+    }
+
+    private function load_properties() {
+        $properties = get_object_vars($this);
+        foreach($properties as $key => $value) {
+            $this->$key = $this->set_data($key);
+        }
+    }
 
 }
 

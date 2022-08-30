@@ -32,6 +32,7 @@ class Sessions {
             $users = new Users();
             if($users->authenticate($username, $password)) {
                 $_SESSION['id'] = $users->id;
+                header("Location:".APP_DOMAIN);
             }
         }
 
