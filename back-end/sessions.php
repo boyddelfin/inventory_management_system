@@ -36,10 +36,13 @@ class Sessions {
             }
         }
 
-        if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
+        $system = new System();
+
+        if ($system->url[0] == 'logout') {
             $this->destroy();
             header("Location:".APP_DOMAIN);
         }
+
 
     }
 

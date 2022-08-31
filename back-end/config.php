@@ -1,20 +1,41 @@
 <?php
-/* 
-*  Database Credentials
-*/
+// CHANGE THIS PROD | STAGE
+define('DB_STATUS', 'STAGE');
 
-// Database Host
-define('DB_HOST', 'localhost');
+// =====================================================
+// ================== STAGING DATABASE =================
+// =====================================================
+// Staging Database Host
+define('SDB_HOST', 'localhost');
 
-// Database Name
-define('DB_NAME', 'vadjr_inventory_db');
+// Staging Database Name
+define('SDB_NAME', 'vadjr_inventory_db');
 
-// Database Username
-define('DB_USER', 'root');
+// Staging Database Username
+define('SDB_USER', 'root');
 
-// Database Password
+// Staging Database Password
+define('SDB_PASS', '');
+
+
+// =====================================================
+// ================ PRODUCTION DATABASE ================
+// =====================================================
+// Staging Database Host
+define('DB_HOST', '');
+
+// Staging Database Name
+define('DB_NAME', '');
+
+// Staging Database Username
+define('DB_USER', '');
+
+// Staging Database Password
 define('DB_PASS', '');
 
+// =====================================================
+// ================ APPLICATION DETAILS ================
+// =====================================================
 // Application Name
 define('APP_NAME', 'Inventory System');
 

@@ -5,6 +5,7 @@ class Users {
     public $display_name;
     public $username;
     public $password;
+    public $user_type;
 
     function __construct()
     {
@@ -37,6 +38,49 @@ class Users {
             return false;
         }
 
+    }
+
+    public function type() {
+        switch ($this->user_type) {
+            case '1111':
+                return 'System Administrator';
+                break;
+
+            case '1100':
+                return 'Stock Administrator';
+                break;
+
+            case '1101':
+                return 'Sales Administrator';
+                break;
+            
+            default:
+                return 'Guest';
+                break;
+        }
+    }
+
+    public function loop() {
+        $db = new Database();
+
+        $sql = "SELECT * FROM ".$this->table();
+        $query = $db->conn->prepare($sql);
+        $query->execute();
+
+        $result = $query->get_result();
+        $rows = $result->num_rows;
+
+        $data = '';
+
+        for($x = 0;$x > $rows; $x++) {
+            $row = $result->fetchAll(MYSQLI_ASSOC);
+            echo $row['id'];
+        }
+        
+        // return $result;
+        
+        $query->close();
+        $db->conn->close();
     }
 
     private function set_data($key) {
