@@ -73,12 +73,12 @@ class Users {
         $data = '';
 
         for($x = 0;$x > $rows; $x++) {
-            $row = $result->fetchAll(MYSQLI_ASSOC);
+            $row = $result->fetch_assoc(MYSQLI_ASSOC);
             echo $row['id'];
         }
         
         // return $result;
-        
+
         $query->close();
         $db->conn->close();
     }

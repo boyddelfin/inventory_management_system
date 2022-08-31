@@ -1,6 +1,6 @@
 <?php
 // CHANGE THIS PROD | STAGE
-define('DB_STATUS', 'PROD');
+define('DB_STATUS', 'STAGE');
 
 // =====================================================
 // ================== STAGING DATABASE =================
@@ -43,7 +43,7 @@ define('APP_NAME', 'Inventory System');
 define('APP_AUTHOR', 'Virgilio A. Delfin Jr.');
 
 // Application Domain
-define('APP_DOMAIN', 'http://'.$_SERVER['SERVER_NAME']);
+define('APP_DOMAIN', 'http://'.$_SERVER['SERVER_NAME'].'/inventory_management_system');
 
 // Application Assets Directory
 define('APP_ASSETS', APP_DOMAIN.'/front-end/template/assets');
