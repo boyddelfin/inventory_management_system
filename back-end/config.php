@@ -43,7 +43,7 @@ define('APP_NAME', 'Inventory System');
 define('APP_AUTHOR', 'Virgilio A. Delfin Jr.');
 
 // Application Domain
-define('APP_DOMAIN', 'http://'.$_SERVER['SERVER_NAME'].'/inventory_management_system');
+define('APP_DOMAIN', 'http://'.$_SERVER['SERVER_NAME']);
 
 // Application Assets Directory
 define('APP_ASSETS', APP_DOMAIN.'/front-end/template/assets');
