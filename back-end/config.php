@@ -1,6 +1,6 @@
 <?php
 // CHANGE THIS PROD | STAGE
-define('DB_STATUS', 'STAGE');
+define('DB_STATUS', 'PROD');
 
 // =====================================================
 // ================== STAGING DATABASE =================
@@ -22,16 +22,16 @@ define('SDB_PASS', '');
 // ================ PRODUCTION DATABASE ================
 // =====================================================
 // Staging Database Host
-define('DB_HOST', '');
+define('DB_HOST', 'localhost');
 
 // Staging Database Name
-define('DB_NAME', '');
+define('DB_NAME', 'kvbkzpks_ims');
 
 // Staging Database Username
-define('DB_USER', '');
+define('DB_USER', 'kvbkzpks_ims');
 
 // Staging Database Password
-define('DB_PASS', '');
+define('DB_PASS', '&UUNWX??v)_e');
 
 // =====================================================
 // ================ APPLICATION DETAILS ================
